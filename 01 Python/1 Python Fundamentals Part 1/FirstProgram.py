@@ -170,45 +170,164 @@
 # --------------------------------------------------------------------------
 # Lecture 8: Assignment operator in Python
 # --------------------------------------------------------------------------- 
-print("Lecture 8: Assignment operator in Python\n\n")
+# print("Lecture 8: Assignment operator in Python\n\n")
 
 
-a = 10
-b = a
+# a = 10
+# b = a
 
 
 
-print("equal to ", b)
+# print("equal to ", b)
 
-a += 5
-print("plus equal to a += 5  : ",a)
+# a += 5
+# print("plus equal to a += 5  : ",a)
 
-d = 10
+# d = 10
 
-d -= 3
-print("minus equal to d = 10, d -= 3 : ",d)
-
-
-x = 15 
-
-x *=3
-print("multiple equal to x = 15, x*=3 : ", x)
+# d -= 3
+# print("minus equal to d = 10, d -= 3 : ",d)
 
 
-z = 10
+# x = 15 
 
-z /=2
+# x *=3
+# print("multiple equal to x = 15, x*=3 : ", x)
 
-print("divide equal to z = 10, z /= 2 : ", z)
 
-b = 4
+# z = 10
 
-b **=2
+# z /=2
 
-print("power equal to b = 4, b **=2 : ", b)
+# print("divide equal to z = 10, z /= 2 : ", z)
 
-r = 10
+# b = 4
 
-r %=2
+# b **=2
 
-print("module equal to r = 10, r %=2 : ", r)
+# print("power equal to b = 4, b **=2 : ", b)
+
+# r = 10
+
+# r %=2
+
+# print("module equal to r = 10, r %=2 : ", r)
+
+
+# --------------------------------------------------------------------------
+# Lecture 9: Logical operator in Python
+# ---------------------------------------------------------------------------
+# print("\nLecture 9: Logical operator in Python\n\n") 
+
+# print("not operator - it's a convert into reverse => means if value is true convert into false vice varsa \n")
+
+# print("not True : ",not True)
+# print("not False : ", not False)
+
+# print("not 5 > 7 : ",not (5>7))
+# print("not 5 < 7 : ", not (5 < 7), "\n")
+
+
+# print("and operator \n")
+
+# print("T and T = T")
+# print("T and F = F")
+# print("F and T = F")
+# print("F and F = F")
+
+
+# print("\n(5 < 6) and (8 < 9): ", (5 < 6) and (8 < 9))
+# print("\n(5 < 6) and (8 > 9): ", (5 < 6) and (8 > 9))
+# print("\n(5 > 6) and (8 < 9): ", (5 > 6) and (8 < 9))
+# print("\n(5 > 6) and (8 > 9): ", (5 > 6) and (8 > 9))
+
+# print("\nor operator\n")
+
+
+# print("T or T = T")
+# print("T or F = T")
+# print("F or T = T")
+# print("F or F = F")
+
+# print("\n(5 < 6) or (8 < 9): ", (5 < 6) or (8 < 9))
+# print("\n(5 < 6) or (8 > 9): ", (5 < 6) or (8 > 9))
+# print("\n(5 > 6) or (8 < 9): ", (5 > 6) or (8 < 9))
+# print("\n(5 > 6) or (8 > 9): ", (5 > 6) or (8 > 9))
+
+
+# print("\nbitwise operator")
+
+
+# --------------------------------------------------------------------------
+# Lecture 10: Operator precedence in Python
+# ---------------------------------------------------------------------------
+# print("\nLecture 10: Operator precedence in Python\n\n")
+
+
+# print("10 * 2 + 5 :", 10 * 2 + 5)
+# print("\nSame precendence: 10 / 2 * 4 : ", 10 / 2 * 4)
+
+
+# --------------------------------------------------------------------------
+# Lecture 11: Operator precedence in Python
+# ---------------------------------------------------------------------------
+# print("\nLecture 10: Operator precedence in Python\n\n")
+
+
+# print("\nImplicit (automatic perform by python) and explicit (perform by developer with compitable conversion)")
+
+# val1 = 10 + 38.0 
+# print("\n 10 + 38.0 : ", val1, "= Implicit type conversion by python. Type = ", type(val1) )
+
+# val2 = int(40.0 + 8)
+# print("\n int(40.0 + 8) : ", val2, "= using int function convert float answer into the int. Type = ", type(val2))
+
+# str = int("123")
+# print("\n int('123') : ", str, "= Implicit type conversion. String value convert it into INT Type = ", type(str))
+
+# val3 = bool(10)
+# print("\n bool(10): ", val3, "= convert integer into boolean value. 0 measn False and True means any number != 0 Type = ", type(val3))
+
+# val4 = bool(0)
+# print("\n bool(0) : ", val4, "= convert integer into boolean value. 0 means False and True means any number != 0. Type = ", type(val4))
+
+
+# --------------------------------------------------------------------------
+# Lecture 12: Taking user input in Python
+# ---------------------------------------------------------------------------
+# print("\nLecture 12: Taking user input in Python\n\n")
+
+# a = input("enter value:")
+# print(a)
+
+# print("\nget input 2 number from user and perform addition of those number: ")
+
+# num1 = input("enter value one: ") 
+# num2 = input("enter value two: ")
+
+# print("value 1 : ",num1, " and value 2 ", num2)
+
+# sum = num1 + num2
+# print("\naddition of num1 and num2 ", sum)
+# print("\nhere print wrong answer becuase of input function take a input in string format and whenever we perform operation on those string python concat both string.")
+
+# num1 = int(num1) # num1 = int(input("enter value one: "))
+# num2 = int(num2) # num2 = int(input("enter value two: "))
+
+# sum2 = num1 + num2
+# print("\naddition of two number after conversion into int",sum2)
+
+
+# --------------------------------------------------------------------------
+# Lecture 13: Average of 2 nums in Python
+# ---------------------------------------------------------------------------
+print("\nLecture 12: Taking user input in Python\n\n")
+
+print("WAP to get input from user and calculate average of two numbers")
+
+x = float(input("enter value 1: "))
+y = float(input("enter value 2: "))
+
+avg = (x + y)/2
+
+print(avg)
