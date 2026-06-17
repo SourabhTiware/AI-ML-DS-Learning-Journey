@@ -106,15 +106,113 @@
 # integer part - 45
 # fractional part - 78
 
-num = input("Enter a decimal number: ")
+# num = input("Enter a decimal number: ")
 
-# Split into integer and fractional parts
-if '.' in num:
-    integer_part, fractional_part = num.split('.')
-    fractional_part = '.' + fractional_part
-else:
-    integer_part = num
-    fractional_part = "No fractional part"
+# # Split into integer and fractional parts
+# if '.' in num:
+#     integer_part, fractional_part = num.split('.')
+#     fractional_part = '.' + fractional_part
+# else:
+#     integer_part = num
+#     fractional_part = "No fractional part"
 
-print("integer part -", integer_part)
-print("fractional part -", fractional_part)
+# print("integer part -", integer_part)
+# print("fractional part -", fractional_part)
+
+#----------------------------------------------------------------------------------------------------------------------
+# Restart AI-ML-DS Journey - Assignment 1: 
+#----------------------------------------------------------------------------------------------------------------------
+
+
+
+# --------------------------------------------------------------------------
+# Que. 1: Write a program that asks the user for their name and age, then prints a sentence like: 
+
+# Hello Shradha, you are 21 year's old!
+# --------------------------------------------------------------------------- 
+
+# print("\n Que 1: Write a program that asks the user for their name and age, then prints a sentence like: Hello Shradha, you are 21 year's old!\n")
+
+# name = input("Enter you name: ")
+# age = int(input("\nEnter your age: "))
+
+# print("\nHello",name,"you are",age, "year's old!")
+
+
+# --------------------------------------------------------------------------
+# Que. 2: Take two numbers as input from the user and print their sum, difference, product and quotient.
+# --------------------------------------------------------------------------- 
+
+# print("\nQue. 2: Take two numbers as input from the user and print their sum, difference, product and quotient.\n")
+
+# a = int(input("\nEnter Integer Number first : "))
+# b = int(input("\nEnter Integer Number Second : "))
+
+# sum = a + b
+# difference = a - b
+# product = a * b
+# quotient = a / b
+
+# print("sum of",a,"+",b,":",sum)
+# print("difference of",a,"-",b,":",difference)
+# print("product of",a,"*",b,":",product)
+# print("quotient of",a,"/",b,":",quotient)
+# print("quotient of",a,"/",b,":",f"{quotient:.30f}")
+
+
+
+# --------------------------------------------------------------------------
+# Que. 3: Ask the user to enter two integer and one float. Convert them all to floats and print their average.
+# --------------------------------------------------------------------------- 
+
+# print("\nQue. 3: Ask the user to enter two integer and one float. Convert them all to floats and print their average.\n")
+
+# num1 = int(input("Enter Integer Number : "))
+# num2 = int(input("Enter Interger Number : "))
+# num3 = float(input("Enter Floating point number : "))
+
+# average = float(num1 + num2 + num3)/3
+
+# print("Average of ",num1,",",num2,"&",num3,": ", average)
+
+
+# --------------------------------------------------------------------------
+# Que. 4: The user enters a String containing a number (e.g, '45'. convert it to")
+        # an integer
+        # a float
+        # a string again
+        # print three values with their types
+# ---------------------------------------------------------------------------
+
+
+print("\nQue. 4: The user enters a String containing a number (e.g, '45'. convert it to\n")
+print("\nan integer")
+print("\na float")
+print("\na string again")
+print("\nprint three values with their types")
+
+numX = input("\nEnter number: ")
+
+print("\nan integer: ",int(numX), "type:", type(int(numX)) )
+print("\nan float: ",float(numX), "type:", type(float(numX)))
+print("\nan string: ",str(numX), "type:", type(str(numX)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
