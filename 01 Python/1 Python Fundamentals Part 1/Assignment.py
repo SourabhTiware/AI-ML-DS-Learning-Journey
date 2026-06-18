@@ -183,20 +183,126 @@
         # a string again
         # print three values with their types
 # ---------------------------------------------------------------------------
+# print("\nQue. 4: The user enters a String containing a number (e.g, '45'. convert it to\n")
+
+# print("\nan integer")
+# print("\na float")
+# print("\na string again")
+# print("\nprint three values with their types")
+
+# numX = input("\nEnter number: ")
+
+# print("\nan integer: ",int(numX), "type:", type(int(numX)) )
+# print("\nan float: ",float(numX), "type:", type(float(numX)))
+# print("\nan string: ",str(numX), "type:", type(str(numX)))
 
 
-print("\nQue. 4: The user enters a String containing a number (e.g, '45'. convert it to\n")
-print("\nan integer")
-print("\na float")
-print("\na string again")
-print("\nprint three values with their types")
+# --------------------------------------------------------------------------
+# Que. 5: Evaluate and print the result of the following expression:
+        # x = 10 + 3 * 2 ** 2
+# Based on what you learnt in the lecture explain why the output is what it is.
+# ---------------------------------------------------------------------------
+# print("\nQue 5: Evaluate and print the result of the following expression: \nx = 10 + 3 * 2 ** 2 \nBased on what you learnt in the lecture explain why the output is what it is.")
 
-numX = input("\nEnter number: ")
 
-print("\nan integer: ",int(numX), "type:", type(int(numX)) )
-print("\nan float: ",float(numX), "type:", type(float(numX)))
-print("\nan string: ",str(numX), "type:", type(str(numX)))
+# print(10 + 3 * 2 ** 2)
 
+# print("Output is 22,\nbuceause of here apply operator precedency rule means operation perfrom from higher priority to lower priority.\nfirst priority for ** then * & then + operator. \nso first calculate 2**2 = 4 \nthen 4 * 3 = 12 \nthen 12 + 10 = 22")
+
+
+# --------------------------------------------------------------------------
+# Que. 6: Write a program to swap values of two numbers entered by the user. 
+# ---------------------------------------------------------------------------
+# print("\nQue. 6: Write a program to swap values of two numbers entered by the user.")
+
+# a = int(input("\nEnter number 1: "))
+# b = int(input("\nEnter number 2: "))
+
+# print("\nbefore Swapping")
+
+# print("\nnumber 1 = ",a)
+# print("\nnumber 2 :",b)
+
+# temp = b
+# b = a
+# a = temp
+
+# print("\nafter Swapping")
+
+# print("\nnumber 1 = ",a)
+# print("\nnumber 2 :",b)
+
+
+# --------------------------------------------------------------------------
+# Que. 7: Ask the user for a temperature in celsius (string input). convert it to float, then calculate and print temperate in fahrenheit.
+
+# conversion formual FahrenheirtTemp = (CelsiusTemp * (9/5)) + 32
+# ---------------------------------------------------------------------------
+# print("\nQue. 7: Ask the user for a temperature in celsius (string input). convert it to float, then calculate and print temperate in fahrenheit.")
+
+# celsius = input("\nEnter temperate in celsius : ")
+
+# celsius = float(celsius)
+
+# Fahrenherit = (celsius * (9/5)) + 32
+
+# print("\nTemperate convert into Fahrenherit = ", Fahrenherit)
+
+
+# --------------------------------------------------------------------------
+# Que. 8: Take the radius (r) as user input and print the area.
+
+# user the formula: Area = pia * r * r (value of pia = 3.14)
+# ---------------------------------------------------------------------------
+
+# print("\nQue. 8: Take the radius (r) as user input and print the area.")
+
+# radius = float(input("Enter radius : "))
+
+# pia = 3.14
+# area = pia * radius ** 2
+
+# print("\n Total area : ", area)
+
+
+# --------------------------------------------------------------------------
+# Que. 9: Ask the user for princial, rate, time. convert all to float and coompute simple interest:
+# user the formula SI = (P * R * T)/ 100
+# ---------------------------------------------------------------------------
+
+# print("\nQue. 9: Ask the user for princial, rate, time. convert all to float and coompute simple interest:")
+
+# principal_amount = input("\nenter pricipal amount: ")
+# rate = input("Input Intrest rate: ")
+# time = input("Input total time for loan : ")
+
+# principal_amount = float(principal_amount)
+# rate = float(rate)
+# time = float(time)
+
+
+# si = (principal_amount * rate * time) / 100
+
+# print("\n Simple Intrest = ", si)
+
+
+
+# --------------------------------------------------------------------------
+# Que. 10: Take a decimal number as input like - 45.78 and output it's
+# integer part = 45
+# fractional part = .78
+# ---------------------------------------------------------------------------
+
+print("\nQue. 10: Take a decimal number as input like - 45.78 and output it's \ninteger part = 45 \nfractional part = .78")
+
+num = input("\nEnter factional number ")
+num = float(num)
+
+integer_part = int(num)
+fractional_part = num - integer_part
+
+print("\nInteger part : ", integer_part)
+print(f"Fractional part : {fractional_part:.2f}") 
 
 
 
