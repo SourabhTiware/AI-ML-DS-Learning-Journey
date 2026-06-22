@@ -160,15 +160,165 @@
 # "Too low" if the guess is below
 # "Correct!" if the guess matches
 
-while(True):
-    guess = int(input("Enter guessed number "))
-    num = 25
+# while(True):
+#     guess = int(input("Enter guessed number "))
+#     num = 25
 
-    if(guess == num):
-        print(guess ,"is correct guess number")
-        break
-    else:
-        if(guess > num):
-            print("Too High guess number \n ")
-        else:
-            print("To Low guess number \n")
+#     if(guess == num):
+#         print(guess ,"is correct guess number")
+#         break
+#     else:
+#         if(guess > num):
+#             print("Too High guess number \n ")
+#         else:
+#             print("To Low guess number \n")
+
+
+# Assignment 
+# -----------------------------------------------------------------------------
+# Ques 1: Write a program that takes salary as input. using conditional statments, calculate the final tax rate based on these rules:
+# If salary < 30,000 => 5%
+# If salary is 30,000 - 70,000 => 15%
+# If salary > 70,000 => 25%
+# -----------------------------------------------------------------------------
+# print("\n Ques 1: ")
+
+# salary = int(input("Enter your monthly salary amount : "))
+
+# if ( salary < 30000 ):
+#     print("you are in 5 % tax slab")
+# elif ( (salary == 30000) or (salary < 70000)):
+#     print("you are in 15 % tax slab")
+# elif ( salary > 70000):
+#     print("you are in 25 % tax slab")
+# else:
+#     print("Wrong input")
+
+
+# -----------------------------------------------------------------------------
+# Ques 2: Write a function that takes two integers a and b and prints all even numbers between them (inclusive)
+# -----------------------------------------------------------------------------
+# print("\n Ques 2: ")
+
+# a = int(input("Enter number 1 : "))
+# b = int(input("Enter number 2 : "))
+
+# print("Now I print even number from ",a,"to",b)
+
+# def even_number(a,b):
+#     for i in range(a,b):
+#         if( i % 2 == 0 ):
+#             print(i)
+
+# even_number(a,b)
+
+
+# -----------------------------------------------------------------------------
+# Ques 3: Write a function that print the digit of a number n.
+# for e.g. n = 312, there are 3 digit in it 3, 1 and 2 & we need to print them
+# [Hint - The right most digit of a number N is N % 10. and to remove the right most digit from a number, we can do N = N / 10]
+# -----------------------------------------------------------------------------
+# print("\n Ques 3: ")
+
+# n = 312 
+
+# def print_digit(n):
+#     while(n > 0):
+#         ld = n % 10
+#         print(ld)
+#         n = int(n / 10)
+
+# print_digit(n);
+
+
+# -----------------------------------------------------------------------------
+# Ques 4: Write a function to return the ccount of the number of digit in a number, n.
+# -----------------------------------------------------------------------------
+# print("\n Ques 4: ")
+
+# num = int(input("Enter any number to count total digits of number : "))
+
+# print("\n I'm calculating total digit. ")
+
+# def count_digit(n):
+#     count = 0
+
+#     while( n > 0 ):
+#         count += 1
+#         n =  n // 10
+
+#     return count
+
+# digit = count_digit(num)
+
+# print("Total digit in number is : ",digit)
+
+
+# -----------------------------------------------------------------------------
+# Ques 5: Write a function to return the sum of digits of a number, n
+# -----------------------------------------------------------------------------
+# print("\n Ques 5: ")
+
+# num = int(input("\n Enter any number to calculate total digit of the number : "))
+# print("\n Now i'm calculating total digit of the number ")
+
+# def sum_of_digit(n):
+#     sum = 0
+
+#     while( n > 0):
+#         ld = n % 10
+#         sum += ld
+#         n = n // 10
+#     return sum
+
+# sum = sum_of_digit(num)
+# print("\n sum of digit of a number : ", sum)
+
+
+# -----------------------------------------------------------------------------
+# Ques 6: Write a program to print all numbers from 1 to 100 that are divisible by both 3 and 5
+# -----------------------------------------------------------------------------
+# print("\n Ques 6: ")
+
+# print("\n Following all numbers are divisible by 3 and 5: ")
+
+# def divisible_num():
+#     for i in range(1,101):
+#         if( (i % 3 == 0) and (i % 5 == 0)):
+#             print(i)
+
+# divisible_num()
+
+
+# -----------------------------------------------------------------------------
+# Ques 7: Design a program to continuously input a number n from user & print if it is +ve or -ve until the user enter "Quit". 
+# -----------------------------------------------------------------------------
+# print("\n Ques 7: ")
+
+# while(True):
+#     choice = input("\n Enter any number to print if you want to quit please enter 'Quit' : ")
+
+#     if(choice != "Quit"):
+#         print(choice)
+#     else:
+#         print("\n You choose option is ",choice, "\n Thank you")
+#         break;
+
+
+# -----------------------------------------------------------------------------
+# Ques 8: Let's create a simple calculator that perform arithmetic operations. 
+# create a function calculator(a,b,operation) that perform addition, substraction, multipliation or division based on the operation parameter.
+# [ operation parameter can have values '+', '-', '*' & '/']
+# -----------------------------------------------------------------------------
+# print("\n Ques 8: ")
+
+
+
+a = int(input("\n Enter number 1 : "))
+b = int(input("\n Enter number 2 : "))
+
+print("\n for addition press 1")
+print("\n for substraction press 2")
+print("\n for Multiplication press 3")
+print("\n for division press 4")
+
