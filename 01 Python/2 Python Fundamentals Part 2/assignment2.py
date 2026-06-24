@@ -312,13 +312,91 @@
 # -----------------------------------------------------------------------------
 # print("\n Ques 8: ")
 
+# def calculator(a,b,operation):
+#     match operation:
+#         case '+' | 1:
+#             return a + b
+#         case '-' | 2:
+#             return a - b
+#         case '*' | 3:
+#             return a * b
+#         case '/' | 4:
+#             if b == 0:
+#                 raise ZeroDivisionError('division by zero')
+#             return a / b
+#         case _:
+#             raise ValueError(f'unsupported operation: {operation}')
 
 
-a = int(input("\n Enter number 1 : "))
-b = int(input("\n Enter number 2 : "))
+# while(True):
+#     print("\n Welcome to the calculator")
 
-print("\n for addition press 1")
-print("\n for substraction press 2")
-print("\n for Multiplication press 3")
-print("\n for division press 4")
+#     print("\n press 1 for addition")
+#     print("\n press 2 for substraction")
+#     print("\n press 3 for multiplication")
+#     print("\n press 4 for division")
+#     print("\n Press 0 for exist the operation ")
 
+#     operation = int(input(""))
+#     if(operation == 0):
+#         print("Thank you visit Again")
+#         break
+#     elif( operation != 1 and operation != 2 and operation != 3 and operation != 4 ):
+#         print("Wrong input please enter correct outout")
+#     else:
+#         a = int(input("Enter number 1st : "))
+#         b = int(input("Enter number 2nd : "))
+    
+#         print("*******************************************")
+#         print("your answer : ",calculator(a,b,operation))
+#         print("*******************************************")
+
+
+
+# -----------------------------------------------------------------------------
+# Ques 9: Write a function is_prime(n) that returns True if n is a prime number and False otherwise using a loop
+# [Hint] -
+# 1. We only check prime for 2 or numbers greater than 2. 2 is the smallest prime number
+# 2. A non-prime number, n, will always get divided by atleast one number in rane [2,, n-1]
+# E.g. For number 9 We'll check in range(2,8) & it'll get divided by 3. so 9 is non-prime & we'll return false for it.
+# For number 7 We'll check in range (2,6), & it won't get divided by any. so 7 is prime & we'll return true for it]
+# -----------------------------------------------------------------------------
+
+# def is_prime(n):
+#     if(n >= 2):
+#         if(n == 2):
+#             print("\n",n,"is prime number")
+#         else:
+#             for i in range(2,n-1):
+#                 if(n % i == 0):
+#                     print("\n",n,"is not prime number")
+#                     break
+#                 else:
+#                     print("\n",n,"is prime number")
+#                     break
+#     else:
+#         print("\n Number should be greater than 2 or equal to 2")
+
+# n = int(input("Enter number to check prime of not "))
+
+# is_prime(n)
+
+# -----------------------------------------------------------------------------
+# Ques 10: let's create a number guessing game. given a secret number (already decided by you), write a program that asks the user to guess it and print:
+# "Too High" if the guess is above the number
+# "Too Low" if the guess is beloc
+# "Correct!" if the guess matches
+# -----------------------------------------------------------------------------
+
+while(True):
+    guess = int(input("Enter any number "))
+    num = 43
+        
+    if(num == guess):
+        print("Correct!")
+        break
+    else:
+        if( guess > num):
+            print("Too High")
+        else:
+            print("Too Low")
