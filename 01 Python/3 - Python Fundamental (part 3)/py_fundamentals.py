@@ -97,15 +97,15 @@
 
 #                                           Lec-05 - List methods (function)
 
-nums=[1,2,3]
+# nums=[1,2,3]
 
 # # append(value) - it's add and element to the end of the list
 # nums.append(4)
 # print(nums)
 
 # inset(idx, value) - it's add an element in list, according to the index.
-nums.insert(2,10)
-print(nums)
+# nums.insert(2,10)
+# print(nums)
 
 # The insert(10, 39) uses index 10, exceeding the list's length of 4, so Python appends 39 to the end instead of 
 # raising an error. The final list becomes [1, 2, 10, 3, 39]
@@ -141,7 +141,7 @@ print(nums)
 
 #                                           Lec-07 Tuple in python
 
-tup = (1,2,3,4,5)
+# tup = (1,2,3,4,5)
 
 # Accessing the tuple element.
 # print(tup[3])
@@ -275,8 +275,157 @@ tup = (1,2,3,4,5)
 # print(a.intersection(b))
 
 
+# Restart jounney
+
+# -----------------------------------------------------------------------------
+# Lec 1: String in python
+# -----------------------------------------------------------------------------
+# print("\n Lec 1: String in python")
+
+# word = "python "
+
+# print("total character in string = ",len(word))
+
+# Acces the string character by manually 
+
+# print(word[0])
+# print(word[1])
+# print(word[2])
+# print(word[3])
+# print(word[4])
+
+# Accessing the string character using loop
+
+# print("\n \n ")
+# for i in word:
+#     print(i)
 
 
+# Concatenate String using " + " operator
+
+# w1 = "I love"
+# w2 = "python"
+
+# sentence = w1 + " " + w2
+# print(sentence)
+
+# word = "python"
+# print("word = ",word)
+
+# print("\n total character in word string : ",len(word))
+
+# # Access the string character by manually using index.
+
+# print("\n fourth index : ",word[4])
+# print("\n zeroth index : ",word[0])
+# print("\n fifth index : ",word[5])
+
+# #Accessing the string character using loop
+
+# print("\n Accessing the string character using loop")
+# for ch in word:
+#     print(ch)
+
+# # Concatenate String using " + " operator
+
+# word2 = "I Love"
+
+# print("string 1 : ",word2)
+# print("string 2 : ",word)
+
+# sentence = word2 + " " + word
+# print("\n",sentence)
 
 
+# -----------------------------------------------------------------------------
+# Lec 2: Slicing in String
+# -----------------------------------------------------------------------------
+# print("\n Lec 2: Slicing in String. It's creating another copy of the string ")
 
+# word = "I want to see my to as a Global leader and guide to global for peace and environment fridenly Growth"
+
+# print(word[24:31]) # print 24 index to 30. Last index is not included in python slicing. 
+
+# print(word[:]) # Print string from start to end. blank means start from 0 to len-1. 
+
+# print(word[6:]) # starting index 6 and ending index is blank means print upto the len-1
+
+# print(word[-16:-7]) # here use -ve indexing but always starting index is less that ending index. 
+
+
+# -----------------------------------------------------------------------------
+# Lec :3 String Formatting - f-string and format string 
+# -----------------------------------------------------------------------------
+# print("\n Lec :3 String Formatting - f-string and format string ")
+
+# Format string. 
+
+# a = 5
+# b = 10
+# sum = a + b
+
+# # Normal Formatting 
+
+# print("Language is {} and it a best language for AI-ML-DS for now".format("python"))
+# print("sum of {} and {} = {}".format(a,b,sum))
+
+# # Index Based formatting
+
+# print("avg of {1} and {0} is {2}".format(a,b,(sum/2)))
+
+# # Value based formatting 
+
+# print("values of {c} and {d}".format(c=29,d=38))
+
+# # f-string formatting. 
+
+# a = 48
+# b = 70
+
+# print(f"sum of {a} and {b} is {a + b}")
+# print(f"avg of {a} and {b} is {(a + b)/2}")
+
+
+# -----------------------------------------------------------------------------
+# Lec 4: Lists in Python 
+# -----------------------------------------------------------------------------
+# print("\n Lec 4: Lists in Python ")
+
+# list = [23,4,34,34,"sourabh",848.88]
+# print(list)
+
+# print(type(list))
+
+# print(list[4])
+
+# # sling in List - it's a another copy of the original list. 
+
+# print(list[:])
+# print(list[0:])
+# print(list[:4])
+
+# print(list[-4:-2])
+
+
+# -----------------------------------------------------------------------------
+# Lec 5: Lists method 
+# -----------------------------------------------------------------------------
+# print("\n Lec 5: Lists method ")
+
+
+# dummy_list = [1,2,3]
+
+# dummy_list.append(4);
+# print(dummy_list)
+
+# dummy_list.insert(2,10)
+# print(dummy_list)
+
+# dummy_list.sort() # ascending order
+# print(dummy_list)
+
+# dummy_list.sort(reverse= True) # Reverse Order 
+# print(dummy_list)
+
+# dummy_list.reverse() # Exact reverse of the orignal list. 
+# print(dummy_list)
