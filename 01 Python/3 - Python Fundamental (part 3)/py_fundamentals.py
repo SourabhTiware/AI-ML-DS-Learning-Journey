@@ -398,7 +398,7 @@
 
 # print(list[4])
 
-# # sling in List - it's a another copy of the original list. 
+# # sling in List - it's a another copy of the original list. last index is not included.  
 
 # print(list[:])
 # print(list[0:])
@@ -415,17 +415,68 @@
 
 # dummy_list = [1,2,3]
 
-# dummy_list.append(4);
+# dummy_list.append(4); # append end of the list. 
 # print(dummy_list)
 
-# dummy_list.insert(2,10)
+# dummy_list.insert(2,10) # Inset value at specific index. must be pass index and value. also you can pass index len(list) + 10. 
 # print(dummy_list)
 
-# dummy_list.sort() # ascending order
+# dummy_list.sort() # ascending order # show list in sorted format with ascending. 
 # print(dummy_list)
 
-# dummy_list.sort(reverse= True) # Reverse Order 
+# dummy_list.sort(reverse= True) # Reverse Order  # show list in un-sorted format with descending format. 
 # print(dummy_list)
 
-# dummy_list.reverse() # Exact reverse of the orignal list. 
+# dummy_list.reverse() # Exact reverse of the orignal list.
 # print(dummy_list)
+
+
+
+# -----------------------------------------------------------------------------
+# Lec 6: Using loops with Lists
+# -----------------------------------------------------------------------------
+# print("\n Lec 6: Using loops with Lists ")
+
+# list = [2, 3, 72, 36, 10, 48, 37, 48, 37]
+
+# value = 10
+# idx = 0
+
+# # Linerar Search 
+
+# for val in list:
+#     if(val == value):
+#         print(f"{val} found at index {idx}")
+#     idx += 1
+
+
+# -----------------------------------------------------------------------------
+# Lec 7: Tuples in python
+# -----------------------------------------------------------------------------
+print("\n Lec 7: Tuples in python, Immutable sequence of values")
+
+# Declare only value in tuple without comma after value means python consider as a single value with store as a variable. 
+tup = (1)
+amu = ("sourabh")
+
+print(type(tup))
+print(type(amu))
+
+acutal_tuple = (84,)
+autal_tuple_2 = ("kdf;ljdfl",)
+
+print(type(acutal_tuple))
+print(type(autal_tuple_2))
+
+# can re-assign value for particular tuple index it's not apply on tuple becuase of tuple is immutable sequence of values. 
+
+tuple = (38,38, 9,4, "sourabh", 38, "Indian")
+
+
+# tuple([3]) = 30 # error - cannot assign to function call here
+
+print(tuple[2:5
+            ])
+print(tuple[:])
+print(tuple[-4:-1])
+
