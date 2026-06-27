@@ -453,30 +453,123 @@
 # -----------------------------------------------------------------------------
 # Lec 7: Tuples in python
 # -----------------------------------------------------------------------------
-print("\n Lec 7: Tuples in python, Immutable sequence of values")
+# print("\n Lec 7: Tuples in python, Immutable sequence of values")
 
-# Declare only value in tuple without comma after value means python consider as a single value with store as a variable. 
-tup = (1)
-amu = ("sourabh")
+# # Declare only value in tuple without comma after value means python consider as a single value with store as a variable. 
+# tup = (1)
+# amu = ("sourabh")
 
-print(type(tup))
-print(type(amu))
+# print(type(tup))
+# print(type(amu))
 
-acutal_tuple = (84,)
-autal_tuple_2 = ("kdf;ljdfl",)
+# acutal_tuple = (84,)
+# autal_tuple_2 = ("kdf;ljdfl",)
 
-print(type(acutal_tuple))
-print(type(autal_tuple_2))
+# print(type(acutal_tuple))
+# print(type(autal_tuple_2))
 
-# can re-assign value for particular tuple index it's not apply on tuple becuase of tuple is immutable sequence of values. 
+# # can re-assign value for particular tuple index it's not apply on tuple becuase of tuple is immutable sequence of values. 
 
-tuple = (38,38, 9,4, "sourabh", 38, "Indian")
+# tuple = (38,38, 9,4, "sourabh", 38, "Indian")
 
 
-# tuple([3]) = 30 # error - cannot assign to function call here
+# # tuple([3]) = 30 # error - cannot assign to function call here
 
-print(tuple[2:5
-            ])
-print(tuple[:])
-print(tuple[-4:-1])
+# print(tuple[2:5
+#             ])
+# print(tuple[:])
+# print(tuple[-4:-1])
 
+
+# -----------------------------------------------------------------------------
+# Lec 8: Tuples methods
+# -----------------------------------------------------------------------------
+# print("\n Lec 8: Tuples methods")
+
+
+# #Loops on tuple
+
+# tup = (84,38,48,284,94)
+# sum = 0
+
+# for val in tup:
+#     sum += val
+
+# print(f"total sum of tuple values = {sum}")
+
+# Tuple Methods 
+
+# t.index(val) - return 1st occrence of index in tuple 
+# t = (3,4,3,4,4,3,4)
+
+# print(f"First occurance of 4 at index : {t.index(4)}")
+
+# t.count(val) - count total occrence in tuple 
+
+# print(f"total occurence of value in tuple : {t.count(3)}")
+
+
+# -----------------------------------------------------------------------------
+# Lec 9: Dicitionary in Python
+# -----------------------------------------------------------------------------
+# print("\n Lec 9: Dicitionary in Python")
+
+# info = {
+#     "name" : "Sourabh",
+#     "cgpa" : 9.3,
+#     "subject" : ["math", "science"],
+#     3.14 : "PI"
+# }
+
+
+# print(info)
+
+# info["cgpa"] = 9.9
+# print(f"updated cgpa : {info["cgpa"]}")
+
+# print(info["subject"])
+
+
+# -----------------------------------------------------------------------------
+# Lec 10: Dicitionary methods
+# -----------------------------------------------------------------------------
+print("\n Lec 10: Dicitionary methods")
+
+info = {
+    "name" : "shraddha",
+    "cgpa" : 9.8,
+    "subject" : ["maths", "science"],
+    3.14 : "PI"
+}
+
+# Dicitionary Key and values 
+
+dict_key = list(info.keys())
+
+print(dict_key, type(dict_key))
+
+dict_value = list(info.values())
+
+print(dict_value, type(dict_value))
+
+
+# dicitionary values 
+
+dict_value = info.values()
+print(dict_value)
+
+
+# d.get(val) - return values access to key if doesn't exist key it will give us None value but never be throw the error. 
+
+dict_val_using_get = info.get("name")
+
+print(dict_val_using_get)
+
+
+# d.update({key:value}) addes new item to dict 
+
+info.update({
+    "city" : "pune"
+})
+
+print(info)
