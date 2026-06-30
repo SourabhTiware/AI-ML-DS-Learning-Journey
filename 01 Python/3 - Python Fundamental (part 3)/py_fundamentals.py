@@ -533,43 +533,152 @@
 # -----------------------------------------------------------------------------
 # Lec 10: Dicitionary methods
 # -----------------------------------------------------------------------------
-print("\n Lec 10: Dicitionary methods")
+# print("\n Lec 11: Dicitionary methods")
 
-info = {
-    "name" : "shraddha",
-    "cgpa" : 9.8,
-    "subject" : ["maths", "science"],
-    3.14 : "PI"
-}
+# info = {
+#     "name" : "shraddha",
+#     "cgpa" : 9.8,
+#     "subject" : ["maths", "science"],
+#     3.14 : "PI"
+# }
 
-# Dicitionary Key and values 
+# # Dicitionary Key and values 
 
-dict_key = list(info.keys())
+# dict_key = list(info.keys())
 
-print(dict_key, type(dict_key))
+# print(dict_key, type(dict_key))
 
-dict_value = list(info.values())
+# dict_value = list(info.values())
 
-print(dict_value, type(dict_value))
-
-
-# dicitionary values 
-
-dict_value = info.values()
-print(dict_value)
+# print(dict_value, type(dict_value))
 
 
-# d.get(val) - return values access to key if doesn't exist key it will give us None value but never be throw the error. 
+# # dicitionary values 
 
-dict_val_using_get = info.get("name")
+# dict_value = info.values()
+# print(dict_value)
 
-print(dict_val_using_get)
+
+# # d.get(val) - return values access to key if doesn't exist key it will give us None value but never be throw the error. 
+
+# dict_val_using_get = info.get("name")
+
+# print(dict_val_using_get)
 
 
-# d.update({key:value}) addes new item to dict 
+# # d.update({key:value}) addes new item to dict 
 
-info.update({
-    "city" : "pune"
-})
+# info.update({
+#     "city" : "pune"
+# })
 
-print(info)
+# print(info)
+
+
+# -----------------------------------------------------------------------------
+# Lec 11: Sets in Python
+# -----------------------------------------------------------------------------
+# print("\n Lec 10: Sets in Python")
+
+
+# # empty set 
+
+# se = set()
+# print(se)
+# print(type(set))
+
+# #set collection of unique element
+
+s = {1,3,3,3,3,2}
+# print(s)
+# print(len(s))
+# print(type(s))
+
+# # Set methods
+# s.add(5)
+# print(s)
+
+
+# -----------------------------------------------------------------------------
+# Lec 12: Sets methods
+# -----------------------------------------------------------------------------
+# print("\n Lec 12: Sets methods")
+# # add() method 
+
+# x = {1,3,5,7,9}
+# y = {2,4,6,8}
+
+# m = {1,2,3,4,5}
+# n = {2,3,8,9}
+
+
+# # x.remove(9)
+# # print(x)
+
+# # s.clear()
+# # print(s)
+
+# # x.pop()
+# # print(x)
+
+# print(x)
+# print(y)
+
+# print(f"union {x.union(y)}") # union element 
+# print(f"intersection {m.intersection(n)}") # common element 
+
+
+# -----------------------------------------------------------------------------
+# Lec 13: practice problem a & b
+# -----------------------------------------------------------------------------
+# print("\n Lec 13: practice problem a & b")
+
+
+"""
+    Given a list of tuples with info (name , subject):
+        list all unique courses
+        list students enrolled in English
+        create dictionary (student, set of course)
+
+"""
+
+# info =[
+#     ("Alice", "Math"),
+#     ("Bob", "science"),
+#     ("Alice", "science"),
+#     ("Charlie", "Math"),
+#     ("Bob", "Math"),
+#     ("Alice", "English"),
+#     ("Charlie", "English")
+# ]
+# Ques 1:
+
+# unique_sub = set()
+
+# for subInfo in info:
+#     unique_sub.add(subInfo[1])
+
+# print(unique_sub)
+
+# Ques 2
+
+# for name, course in info:
+#     if(course == "English"):
+#         print(name)
+
+
+# -----------------------------------------------------------------------------
+# Lec 14: practice problem (part c)
+# -----------------------------------------------------------------------------
+# print("\n Lec 14: practice problem (part c)")
+
+# dict = {}
+
+# for name, course in info:
+#     if(dict.get(name) == None):
+#         dict.update({name: set()})
+#         dict[name].add(course)
+#     else:
+#         dict[name].add(course)
+
+# print(dict)
