@@ -298,20 +298,54 @@ print(avg)
 """
 # -----------------------------------------------------------------------------
 
-# dict = {}
+dict = {}
 
-# while(True):
-#     print("Choose one option from following")
+while(True):
+    print("\n \n Choose one option from following")
 
-#     print("A - add a student")
-#     print("B - Update a marks")
-#     print("C - Search for a studnet")
-#     print("D - Display all student and marks")
+    print("a - add a student")
+    print("b - Update a marks")
+    print("c - Search for a studnet")
+    print("d - Display all student and marks")
+    print("x - press 'x' for exit from application ")
 
-#     choice = input("\n Enter your choice : ")
+    choice = input("\n Enter your choice : ")
 
-#     match choice:
-#         case "A":
+    match choice:
+        case "a":
+            name = input("\nEnter student name : ")
+            marks = int(input("\nEnter marks of student : "))
 
+            dict[ name ] = marks
+            print("\n",dict)
+            print("\nstudent added successfully")
+        case "b":
+            name = input("\nEnter name of student: ")
+            
+            for name in dict:
+                marks = int(input("Enter total marks out of 100"))
+                dict[name] = marks
+                print("marks update successfully : ")
+                print(dict.get(name))
+        case "c":
+            name = input("Enter student name for search")
+            if name in dict:
+                print(f"{name} : {dict[name]}")
+            else:
+                print("Student not found in record")
+        case "d":
+            if dict:
+                print("\n All student and it's marks")
+                
+                for name, marks in dict.items():
+                    print(f"{name} : {marks}")
+            else:
+                print("No records available ")
+
+        case "x":
+            print("\nThank you visit again !..")
+            break
+        case _:
+            print("\nWrong input ...")
 
 
