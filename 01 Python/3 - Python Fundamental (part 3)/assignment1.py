@@ -234,15 +234,15 @@
 # Que 2: Given a list of integers compute the average of all numbers in the list. 
 # -----------------------------------------------------------------------------
 
-a_list = [2,3,49,39]
-sum = 0
+# a_list = [2,3,49,39]
+# sum = 0
 
-for i in a_list:
-    sum += i
+# for i in a_list:
+#     sum += i
 
-avg = sum / len(a_list)
+# avg = sum / len(a_list)
 
-print(avg)
+# print(avg)
 
 
 # -----------------------------------------------------------------------------
@@ -298,67 +298,159 @@ print(avg)
 """
 # -----------------------------------------------------------------------------
 
-dict = {}
+# dict = {}
 
-while(True):
-    print("\n \n Choose one option from following")
+# while(True):
+#     print("\n \n Choose one option from following")
 
-    print("a - add a student")
-    print("b - Update a marks")
-    print("c - Search for a studnet")
-    print("d - Display all student and marks")
-    print("x - press 'x' for exit from application ")
+#     print("a - add a student")
+#     print("b - Update a marks")
+#     print("c - Search for a studnet")
+#     print("d - Display all student and marks")
+#     print("x - press 'x' for exit from application ")
 
-    choice = input("\n Enter your choice : ")
+#     choice = input("\n Enter your choice : ")
 
-    match choice:
-        case "a":
-            name = input("\nEnter student name : ")
-            marks = int(input("\nEnter marks of student : "))
+#     match choice:
+#         case "a":
+#             name = input("\nEnter student name : ")
+#             marks = int(input("\nEnter marks of student : "))
 
-            dict[ name ] = marks
-            print("\n",dict)
-            print("\nstudent added successfully")
-        case "b":
-            name = input("\nEnter name of student: ")
+#             dict[ name ] = marks
+#             print("\n",dict)
+#             print("\nstudent added successfully")
+#         case "b":
+#             name = input("\nEnter name of student: ")
             
-            for name in dict:
-                marks = int(input("Enter total marks out of 100"))
-                dict[name] = marks
-                print("marks update successfully : ")
-                print(dict.get(name))
-        case "c":
-            name = input("Enter student name for search")
-            if name in dict:
-                print(f"{name} : {dict[name]}")
-            else:
-                print("Student not found in record")
-        case "d":
-            if dict:
-                print("\n All student and it's marks")
+#             for name in dict:
+#                 marks = int(input("Enter total marks out of 100"))
+#                 dict[name] = marks
+#                 print("marks update successfully : ")
+#                 print(dict.get(name))
+#         case "c":
+#             name = input("Enter student name for search")
+#             if name in dict:
+#                 print(f"{name} : {dict[name]}")
+#             else:
+#                 print("Student not found in record")
+#         case "d":
+#             if dict:
+#                 print("\n All student and it's marks")
                 
-                for name, marks in dict.items():
-                    print(f"{name} : {marks}")
-            else:
-                print("No records available ")
+#                 for name, marks in dict.items():
+#                     print(f"{name} : {marks}")
+#             else:
+#                 print("No records available ")
 
-        case "x":
-            print("\nThank you visit again !..")
-            break
-        case _:
-            print("\nWrong input ...")
+#         case "x":
+#             print("\nThank you visit again !..")
+#             break
+#         case _:
+#             print("\nWrong input ...")
 
 
 # Q6 - Given a list of words = ["apple", "banana", "kiwi", "cherry", "mangor"]
 # create a dictionary that maps each word to its length. 
 # Example : {"apple":5, "banana" : 6, "kiwi": 4, ...}
 
-words = ["apple", "banana", "kiwi", "cherry", "mangor"]
-new_words = {}
+# words = ["apple", "banana", "kiwi", "cherry", "mangor"]
+# new_words = {}
 
-for i in range(len(words)):
-    new_words.update({
-        words[i] : len(words[i])
-    })
+# for i in range(len(words)):
+#     new_words.update({
+#         words[i] : len(words[i])
+#     })
 
-print(new_words)
+# print(new_words)
+
+
+
+# -----------------------------------------------------------------------------
+# Que 7: Write a program that takes a string from the user and prints the number o spaces in the string.
+# -----------------------------------------------------------------------------
+
+# str = input("Enter any string : ")
+# count = 0
+# for i in str:
+#     if( i == " "):
+#         count += 1
+    
+# print(f"total spaces in string : {count}")
+
+
+# -----------------------------------------------------------------------------
+# Que 8: Write a program to check whether two lists share no common elements
+# list1 = [1,2,3,4], list2 = [5,6,7,8]
+# list3 = [1,2,3], list4 = [3,4]
+# -----------------------------------------------------------------------------
+
+
+
+# list1 = [1,2,3,4]
+# list2 = [5,6,7,8]
+
+# a = set(list1)
+# b = set(list2)
+
+# print(a)
+# print(b)
+
+# task1 = a.intersection(b)
+# print(a.intersection(b))
+
+# if(len(task1) == 0):
+#     print("both list are no share common element")
+# else:
+#     print("both list are shared common element")
+
+
+# list3 = [1,2,3]
+# list4 = [3,4] 
+
+# x = set(list3)
+# y = set(list4)
+
+
+# task2 = x.intersection(y)
+# print(x.intersection(y))
+
+
+# if(len(task2) == 0):
+#     print("both list are no share common element")
+# else:
+#     print("both list are shared common element")
+
+    
+
+
+
+# -----------------------------------------------------------------------------
+# Que 9: Given a list, print all elements that appear more than once in the list
+# -----------------------------------------------------------------------------
+
+
+# original_list = [1,3,2,4,1,3,4,3,5,6,6]
+# only_set = set()
+# duplicate_set = set()
+
+# for x in original_list:
+#     if x in only_set:
+#         duplicate_set.add(x)
+#     else:
+#         only_set.add(x)
+# print("original list ",original_list)
+# print(duplicate_set)
+
+
+# -----------------------------------------------------------------------------
+# Que 10: Ask the user for a string ans print:
+# All unique characters
+# The count of unique character
+# -----------------------------------------------------------------------------
+
+# user_input = input("Enter a string: ")
+
+# unique_chars = sorted(set(user_input))
+
+# print("Unique characters:", unique_chars)
+# print("Count of unique characters:", len(unique_chars))
