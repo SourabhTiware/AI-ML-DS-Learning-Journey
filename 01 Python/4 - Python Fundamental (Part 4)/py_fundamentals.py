@@ -504,30 +504,148 @@
 # Lec 08: class method
 # -----------------------------------------------------------------------------
 
-class laptop:
-    storage_type = "ssd"
+# class laptop:
+#     storage_type = "ssd"
 
-    def __init__(self,RAM, storage):
-        self.RAM = RAM
-        self.storage = storage
+#     def __init__(self,RAM, storage):
+#         self.RAM = RAM
+#         self.storage = storage
     
-    @classmethod
-    def get_storage_type(cls):
-        print(f"storage type = {cls.storage_type}")
+#     @classmethod
+#     def get_storage_type(cls):
+#         print(f"storage type = {cls.storage_type}")
     
-    @staticmethod
-    def cal_discount(price, discout):
-        final_price = price - (discout * price/ 100)
-        print(final_price)
+#     @staticmethod
+#     def cal_discount(price, discout):
+#         final_price = price - (discout * price/ 100)
+#         print(final_price)
 
-l1 = laptop("16gb", "512gb")
+# l1 = laptop("16gb", "512gb")
 
-l1.get_storage_type()
+# l1.get_storage_type()
 
-laptop.get_storage_type()
+# laptop.get_storage_type()
 
-l1.cal_discount(40_000,10)
-
-
+# l1.cal_discount(40_000,10)
 
 
+# -----------------------------------------------------------------------------
+# Lec 09: Practice Problem
+# -----------------------------------------------------------------------------
+
+"""
+Product store: 
+design & create an online store for products(name, price). track total products being created. create a static
+method to calculate discount on each product based on a % parameter
+"""
+
+# class product:
+
+#     count = 0
+
+#     def __init__(self,name, price): # Intance method
+#         self.name = name
+#         self.price = price
+#         print(f"product name is {self.name} and price is {self.price}")
+#         product.count += 1
+
+#     def  get_total_count(cls):
+#         print(f"total product is {cls.count}")
+    
+#     @staticmethod
+#     def cal_discout(price, discount):
+#         final_price = price - (discount * price / 100)
+#         print(final_price)
+
+# p1 = product("mouse",300)
+# p1.get_total_count()
+# p1.cal_discout(300,10)
+
+
+# -----------------------------------------------------------------------------
+# Lec 10: Encapsulation in OOP's
+# -----------------------------------------------------------------------------
+
+
+# class BankAccount:
+
+#     def __init__(self, name, balance, address):
+#         self.name = name
+#         self._balance = balance # Protected attribute / variable
+#         self.__address = address # Private attribute / variable
+    
+#     def get_address(self): #getter function for private function. 
+#         return self.__address
+    
+#     def set_address(self, newBalance):
+#         self.__address = newBalance
+
+
+# acc1 = BankAccount("Sourabh Tiware",20_000,"pune")
+# print(acc1.name, acc1._balance)
+
+# # print(acc1.get_address())
+
+# acc1.set_address("kolhapur")
+
+# # print(acc1.get_address())
+
+# # This is not valid in python rule. access private attribute outside the class
+
+# print(acc1._BankAccount__address)
+
+# print(acc1._balance)
+
+
+# -----------------------------------------------------------------------------
+# Lec 11: Inheritance in OOP's
+# -----------------------------------------------------------------------------
+
+# class Employee:
+#     start_time = "10am" # by default class attribute's are public
+#     end_time = "6pm"
+
+# class Teacher(Employee):
+#     def __init__(self,subject):
+#         self.subject = subject
+    
+#     def change_time(self,new_time):
+#         self.end_time = new_time
+
+# class AdminStaff(Employee):
+#     def __init__(self, role):
+#         self.role = role
+
+# t_1 = Teacher("math")
+# t_1.change_time("5pm")
+
+# print(t_1.subject, t_1.start_time, t_1.end_time)
+
+# staff_2 = AdminStaff("mananger")
+
+# print(staff_2.role, staff_2.start_time, staff_2.end_time)
+
+
+# -----------------------------------------------------------------------------
+# Lec 12: Type's of Inheritance
+# -----------------------------------------------------------------------------
+
+# class Teacher:
+#     def __init__(self, salary):
+#         self.salary = salary
+    
+
+# class Student:
+#     def __init__(self,gpa):
+#         self.gpa = gpa
+
+# class TA(Teacher, Student):
+#     def __init__(self, salary, gpa, name):
+#         super().__init__(salary)
+#         Student.__init__(self,gpa)
+#         self.name = name
+
+
+# ta1 = TA(15_000, 9.4, "sourabh")
+
+# print(ta1.name, ta1.gpa, ta1.salary)
