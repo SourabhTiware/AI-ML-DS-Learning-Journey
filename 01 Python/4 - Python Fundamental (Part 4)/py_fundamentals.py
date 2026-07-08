@@ -649,3 +649,77 @@ method to calculate discount on each product based on a % parameter
 # ta1 = TA(15_000, 9.4, "sourabh")
 
 # print(ta1.name, ta1.gpa, ta1.salary)
+
+
+# -----------------------------------------------------------------------------
+# Lec 13: Abstraction
+# -----------------------------------------------------------------------------
+
+# from abc import ABC, abstractmethod
+
+# class Animal(ABC):
+#     @abstractmethod
+#     def make_sound(self):
+#         pass
+
+# class Lion(Animal):
+#     def make_sound(self):
+#         print("Roar!")
+
+# class Cow(Animal):
+#     # def __init__(self,name):
+#     #     self.name = name
+#     #     print(name)
+    
+#     def make_sound(self):
+#         print("Moo!")
+    
+# l1 = Lion()
+# l1.make_sound()
+
+# # c1 = Cow("Jenny")
+
+# c2 = Cow()
+# c2.make_sound()
+
+
+# -----------------------------------------------------------------------------
+# Lec 14: Polymorphism (Function overriding)
+# -----------------------------------------------------------------------------
+
+# class Employee:
+#     def get_position(self):
+#         print("position: Employee")
+    
+# class Teacher(Employee):
+#     def get_position(self):
+#         print("position = Teacher")
+
+# t1 = Teacher()
+# t1.get_position()
+
+# e1 = Employee()
+# e1.get_position()
+
+
+
+# -----------------------------------------------------------------------------
+# Lec 15: Polymorphism (Duck Typing)
+# -----------------------------------------------------------------------------
+
+class Employee():
+    def get_position(self):
+        print("position: Employee")
+    
+class Teacher():
+    def get_position(self):
+        print("position = Teacher")
+
+t1 = Teacher()
+t1.get_position()
+
+e1 = Employee()
+e1.get_position()
+
+
+
