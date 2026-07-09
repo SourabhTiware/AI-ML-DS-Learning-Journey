@@ -315,3 +315,386 @@
     
 
 # Q9 - Create the follwing classes: Herbivor, Carnivore, Ownivore with some attributes and methods. Then create a class Bear that inherits from all the above classes to showcase how multiple inheritance works.
+
+
+# AI-ML-DS Restart journey
+
+# -----------------------------------------------------------------------------
+""" Ques 1: 
+        Create a BacnkAccount class with attributes account_number, owner_name, and balance. 
+        add methods to deposite, withdraw and check balance.
+"""
+# -----------------------------------------------------------------------------
+
+# class BankAccount:
+#     def __init__(self,account_number, owner_name, balance):
+#         self.account_number = account_number
+#         self.owner_name = owner_name
+#         self.balance = balance
+
+#     def add_deposit(self,new_balance):
+#         self.balance = self.balance + new_balance
+    
+#     def withdraw_balance(self,withdraw_amount):
+#         self.balance = self.balance - withdraw_amount
+    
+#     def check_balance(self):
+#         print(f"total balance is {self.balance}")
+        
+        
+
+# b1 = BankAccount("101","sourabh",20_000)
+# print(b1.account_number, b1.owner_name, b1.balance)
+
+# b1.add_deposit(5000)
+# print(b1.account_number, b1.owner_name, b1.balance)
+
+# b1.withdraw_balance(2000)
+# print(f"after withdraw ammount total balance : {b1.balance} ")
+
+# b1.check_balance()
+
+
+# -----------------------------------------------------------------------------
+""" Ques 2: 
+        Create a class Book with the following attributes:
+        1. title
+        2. author
+        3. list of reviews
+        and add methods to:
+        1. add a new review
+        2. count reviews
+        3. display all reviews
+"""
+# -----------------------------------------------------------------------------
+
+
+# class Book:
+#     review = []
+
+#     def __init__(self, title, author, list_of_reviews):
+#         self.title = title
+#         self.author = author
+#         self.list_of_reviews = list_of_reviews
+    
+#     def add_review(self,new_review):
+#         self.review.append(new_review)
+#         print("new review addess successfully")
+    
+#     def count_review(self):
+#         self.count = len(self.review)
+#         print(f"total count of review is : {self.count}")
+    
+#     def display_all_review(self):
+#         print(f"Total reviews = {self.review}")
+
+
+# b = Book("Life", "sourabh","Best life lesson")
+
+# print(b.title)
+# print(b.author)
+# print(b.list_of_reviews)
+
+# b.add_review("new one")
+# b.count_review()
+# b.display_all_review()
+
+
+# -----------------------------------------------------------------------------
+""" Ques 3: 
+        Create a class Student with private attributes __name, __roll_no, __makrs.
+        provide getter and setter methods with validateion. (e.g. marks cannot be negative, roll number has to between 1 & 100 & name cannot be empty)
+"""
+# -----------------------------------------------------------------------------
+
+# class Studnet:
+#     def __init__(self,name, roll_no, makrs):
+#         self.__name = name
+#         print(self.__name)
+#         self.__roll_no = roll_no
+#         print(self.__roll_no)
+#         self.__makrs = makrs
+#         print(self.__makrs)
+    
+#     def set_attributes(self,stu_mark,stu_roll,stu_name):
+#         if(stu_mark>0):
+#             self.__marks = stu_mark
+#             print("marks updated successfully")
+#         else:
+#             print("marks should be greater than 0")
+
+#         if(stu_roll>0 and stu_roll <= 100):
+#             self.__roll_no = stu_roll
+#             print("roll number updated successfully")
+#         else:
+#             print("marks should be between 0 to 100")
+        
+#         if(len(stu_name)>0):
+#             self.__name = stu_name
+#             print("name updated successfully")
+#         else:
+#             print("name should not be empty")
+#     def get_attributes(self):
+#         print(self.__name)
+#         print(self.__roll_no)
+#         print(self.__makrs)
+
+
+# s = Studnet("sourabh",75,72)
+
+# s.set_attributes(38,38,"shraddha")
+
+# s.get_attributes()
+
+
+# -----------------------------------------------------------------------------
+""" Ques 4: 
+        Create a class Shape with a method area().
+        Create subclassess Circle, Rectangle and Triangle that override the area() method
+"""
+# -----------------------------------------------------------------------------
+
+# class Shape:
+#     def area():
+#         pass
+
+# class Circle(Shape):
+#     def area(self, r):
+#         self.circle_area = 3.14 * r * r
+#         print(self.circle_area)
+
+# class Rectangle:
+#     def area(self,l,w):
+#         self.rect_area = l * w
+#         print(self.rect_area)
+
+# class Triangle:
+#     def area(self,b,h):
+#         self.tri_area = b * h
+#         print(self.tri_area)
+
+
+# c = Circle()
+
+# c.area(3.3)
+
+# r = Rectangle()
+# r.area(4,5)
+
+# t = Triangle()
+# t.area(3,4)
+
+
+
+# -----------------------------------------------------------------------------
+""" Ques 5: 
+        Create a base class Vehicle with attribures like brand and model. 
+        create two subclasses Car and Bike that add extra attributes - seates (in car) & 
+        engine_cc (in Bike).
+"""
+# -----------------------------------------------------------------------------
+
+# class Vehical:
+#     def __init__(self,brand, model):
+#         self.brand = brand
+#         self.model = model
+    
+
+# class Car(Vehical):
+#     def __init__(self, brand, model,seats):
+#         super().__init__(brand, model)
+#         self.seats = seats
+
+#         print(self.brand,self.model, self.seats)
+
+# class Bike(Vehical):
+#     def __init__(self, brand, model,engine_cc):
+#         super().__init__(brand, model)
+#         self.engine_cc = engine_cc
+
+#         print(self.brand, self.model, self.engine_cc)
+
+# c = Car("BMW","7 Series",4)
+
+# b = Bike("Avenger","7x",220)
+
+
+# -----------------------------------------------------------------------------
+""" Ques 6: Create an abstract class Employee with an abstract method calculate_salary().
+    Create subclassess Intern, FullTimeEmployee and ContractEmployee that implement the method differently.
+"""
+# -----------------------------------------------------------------------------
+
+
+# from abc import ABC, abstractmethod
+
+# class Employee(ABC):
+#     def calculate_salary(self):
+#         pass
+
+# class Intern(Employee):
+#     def calculate_salary(self, stipend):
+#         self.stipend = stipend
+#         print(self.stipend)
+
+# class FulltimeEmployee:
+#     def calculate_salary(self, payment):
+#         self.payment = payment
+#         print(self.payment)
+
+# class ContractEmployee:
+#     def calculate_salary(self,half_payment):
+#         self.half_payment = half_payment
+#         print(self.half_payment)
+
+
+
+# i = Intern()
+
+# i.calculate_salary(3000)
+
+# f = FulltimeEmployee()
+
+# f.calculate_salary(40000)
+
+# c = ContractEmployee()
+
+# c.calculate_salary(20000)
+
+
+# -----------------------------------------------------------------------------
+""" Ques 7: Create a class Person that allows the constructor to work with:
+    name only
+    name + age
+    name + age + address
+
+    as direct constructor overloading (multiple constructors) are not allowed but we have
+    to use default parameters to simulate constructor overloading.
+"""
+# -----------------------------------------------------------------------------
+
+# class Person:
+#     def __init__(self,name, age = None, address = None):
+#         self.name = name
+#         self.age = age
+#         self.address = address
+
+#     def display(self):
+#         print(f"Name    : {self.name}")
+#         print(f"Age     : {self.age}")
+#         print(f"Address : {self.address}")
+#         print("-" * 30)
+
+
+# # Name only
+# p1 = Person("Sourabh")
+
+# # Name + Age
+# p2 = Person("Rahul", 22)
+
+# # Name + Age + Address
+# p3 = Person("Priya", 25, "Pune")
+
+# p1.display()
+# p2.display()
+# p3.display()
+
+
+# -----------------------------------------------------------------------------
+""" 
+    Ques 8: Create a class Player with:
+        a class variable player_count
+        instance variables name and level
+
+        track how many players were created
+"""
+# -----------------------------------------------------------------------------
+
+# class Player:
+#     # Class variable
+#     player_count = 0
+
+#     def __init__(self, name, level):
+#         self.name = name
+#         self.level = level
+
+#         # Increment player count whenever a new object is created
+#         Player.player_count += 1
+
+#     def display(self):
+#         print(f"Name : {self.name}")
+#         print(f"Level: {self.level}")
+#         print("-" * 20)
+
+
+# # Creating Player objects
+# p1 = Player("Sourabh", 10)
+# p2 = Player("Rahul", 15)
+# p3 = Player("Priya", 20)
+
+# # Display player details
+# p1.display()
+# p2.display()
+# p3.display()
+
+# # Display total number of players created
+# print("Total Players Created:", Player.player_count)
+
+# -----------------------------------------------------------------------------
+""" 
+    Ques 9: create the following classess: Herbivore, Carnivore, Omnivore with some attributes & methods. 
+    Then create a class Bear that inherits from all the above classes to showcase how multiple inheritance works.
+"""
+# -----------------------------------------------------------------------------
+
+
+class Herbivore:
+    def __init__(self):
+        self.plant_food = "Grass, Fruits"
+
+    def eat_plants(self):
+        print("Herbivore eats plants.")
+
+
+class Carnivore:
+    def __init__(self):
+        self.meat_food = "Fish, Meat"
+
+    def eat_meat(self):
+        print("Carnivore eats meat.")
+
+
+class Omnivore:
+    def __init__(self):
+        self.mixed_food = "Plants and Meat"
+
+    def eat_both(self):
+        print("Omnivore eats both plants and meat.")
+
+
+class Bear(Herbivore, Carnivore, Omnivore):
+    def __init__(self, name):
+        self.name = name
+
+        # Call constructors of all parent classes
+        Herbivore.__init__(self)
+        Carnivore.__init__(self)
+        Omnivore.__init__(self)
+
+    def display(self):
+        print(f"Bear Name : {self.name}")
+        print(f"Plant Food: {self.plant_food}")
+        print(f"Meat Food : {self.meat_food}")
+        print(f"Mixed Food: {self.mixed_food}")
+
+
+# Create Bear object
+b1 = Bear("Brown Bear")
+
+# Display details
+b1.display()
+
+# Access methods from all parent classes
+b1.eat_plants()
+b1.eat_meat()
+b1.eat_both()
