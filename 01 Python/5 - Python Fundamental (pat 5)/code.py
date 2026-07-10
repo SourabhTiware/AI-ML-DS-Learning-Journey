@@ -199,10 +199,51 @@ import json
 
 
 # Export Data Python to Json obj using write mode "w"
-data = {
-    "name" : "sourabh",
-    "age" : 25,
-    "isTeacher" : True
-}
-with open("data.json","w") as f:
-    json.dump(data,f, indent =4, sort_keys= True)
+# data = {
+#     "name" : "sourabh",
+#     "age" : 25,
+#     "isTeacher" : True
+# }
+# with open("data.json","w") as f:
+#     json.dump(data,f, indent =4, sort_keys= True)
+
+
+# -----------------------------------------------------------------------------
+#                                       Lec - 01 - File I/O
+#                                       Lec - 02 - Operation on Files
+# -----------------------------------------------------------------------------
+
+# f = open("sample.txt","r")
+## normal read
+# data = f.read()
+
+# print(data)
+
+
+## readline function - read line by line. 
+
+# data = f.readline() # print first line 
+
+# print(data)
+
+# data = f.readline() # print second line 
+
+# print(data)
+
+
+## Write Mode
+
+
+f = open("sample.txt","w")
+
+f.write("Text to overwrite \nthe complete data")
+
+f.close() 
+
+
+x = open("sample.txt","r")
+
+data = x.read()
+print(data)
+
+x.close()

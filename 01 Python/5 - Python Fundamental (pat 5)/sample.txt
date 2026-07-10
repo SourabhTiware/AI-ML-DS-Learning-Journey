@@ -1,4 +1,2 @@
-This is a demo file
-to store some worlds
-for the python activity
-that is to be solved by us.
+Text to overwrite 
+the complete data
