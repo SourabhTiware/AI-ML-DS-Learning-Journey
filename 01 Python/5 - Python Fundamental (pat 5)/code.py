@@ -234,16 +234,111 @@ import json
 ## Write Mode
 
 
-f = open("sample.txt","w")
+# f = open("sample.txt","w")
 
-f.write("Text to overwrite \nthe complete data")
+# f.write("Text to overwrite \nthe complete data")
 
-f.close() 
+# f.close() 
+
+## Read a file 
+
+# x = open("sample.txt","r")
+
+# data = x.read()
+# print(data)
+
+# x.close()
 
 
-x = open("sample.txt","r")
+# -----------------------------------------------------------------------------
+#                                       Lec - 03 - Modes in file operations
+# -----------------------------------------------------------------------------
 
-data = x.read()
-print(data)
+# append mode
 
-x.close()
+
+# f = open("sample.txt","a")
+
+# f.write("\nnew text append \nTO THE FILE")
+
+# f.close() 
+
+##  x - create a new file if not exist and write mode. 
+
+# f = open("Sample2.txt", "x")
+
+# f.write("Some randome text with 'X' file mode")
+
+# f.close()
+
+
+# "+ operator"
+#  r+ => read and write overwite the file data. 
+# w+ => write and read mode
+# a+ => append and read mode
+
+
+# # w+ write and read mode
+
+# f = open("sample2.txt","w+")
+
+# f.write("over write data ")
+# print(f.read())
+
+# f.close()
+
+# # r+ 
+
+# f = open("Sample2.txt", "r+")
+
+# f.write("r+ mode means write and read mode. ")
+# print(f.read())
+
+# f.close()
+
+
+# # a+ mode 
+
+# f = open("sample2.txt","a+")
+
+# f.write("\nappend those data in file sample2.txt")
+
+# print(f.read())
+
+# f.close()
+
+
+# -----------------------------------------------------------------------------
+#                                       Lec - 04 - With Keywords
+# -----------------------------------------------------------------------------
+
+# write() → Cursor moves forward as data is written.
+# read() → Reads from the current cursor position.
+# seek(n) → Moves the cursor to position n.
+# tell() → Tells you the current cursor position.
+
+# with open("sample4.txt", "w+") as f:
+#     data = f.write("Random words file ")
+#     f.seek(0)
+#     # print(f.tell())
+#     print(f.read())
+
+# with open("sample4.txt","r") as f:
+#     print(f.read())
+
+
+# -----------------------------------------------------------------------------
+#                                       Lec - 05 - Deletes Files
+# -----------------------------------------------------------------------------
+
+# import os
+
+# os.remove("demo.txt")
+
+
+
+
+
+
+
+
