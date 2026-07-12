@@ -1,2 +1,3 @@
 r+ mode means write and read mode. 
 append those data in file sample2.txt
+python

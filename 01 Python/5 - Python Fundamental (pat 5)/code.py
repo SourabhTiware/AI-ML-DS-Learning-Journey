@@ -337,8 +337,126 @@ import json
 
 
 
+# -----------------------------------------------------------------------------
+#                                       Lec - 06 - Practice Example
+# -----------------------------------------------------------------------------
 
 
+# data = True
+# line = 1
+# word = "append"
+# # word = "python"
+
+# with open("sample2.txt", "r") as f:
+#     while data:
+#         data = f.readline()
+
+#         if(word in data):
+#             print(f"word found at line {line}")
+#             break
+#         line += 1
+
+        
+
+# -----------------------------------------------------------------------------
+#                                       Lec - 07 - Exception Handling
+#                                       Lec - 08 - finally keyword
+# -----------------------------------------------------------------------------
+
+# try:
+#     x = int(input("Enter any number : "))
+#     ans = 10 / x
+
+# except ZeroDivisionError:
+#     print(f"divide by 0 is not allowed")
+
+# except ValueError:
+#     print("Invalid Input")
+
+# else:
+#     print(f"ans = {ans}")
+
+# finally:
+#     print("End of program")
+
+
+
+# -----------------------------------------------------------------------------
+#                                       Lec - 09 - List comprehensions
+# -----------------------------------------------------------------------------
+
+# # Normal vcode 
+# sq = []
+
+# for i in range(1,6,1):
+#     sq.append(i*i)
+
+# print(sq)
+
+
+# # Using list comprehension
+
+# sq = [i*i for i in range(1,6,1) if i % 2 != 0]
+# print(sq)
+
+# # another example 
+# lst = [3,-2,-3,8,7,2,4,-8]
+# sq = [0 if val < 0 else val*val for val in lst ]
+
+# print(sq)
+
+
+# -----------------------------------------------------------------------------
+#                                       Lec - 10 - Working with JSON module
+# -----------------------------------------------------------------------------
+
+
+# # Json string to python object using json.loads() function
+
+# import json
+
+# json_str = '{"name":"sourabh","isTeacer" : true}'
+
+# py_obj = json.loads(json_str)
+
+# print(type(py_obj), py_obj)
+
+
+# Python object / dict to json string using json.dumps() function 
+
+# import json 
+
+# py_obj = {
+#     "name" : "sourabh",
+#     "isTeacher" : True
+# }
+
+# json_str = json.dumps(py_obj)
+
+# print(type(json_str), json_str)
+
+
+# # json file convert it into the python obj / dict
+
+# import json
+
+# with open("data.json", "r") as f:
+#     py_obj = json.load(f)
+#     print(type(py_obj), py_obj)
+
+
+# # python dict / obj in json format. 
+
+import json 
+
+data = {
+    "name" : "shraddah",
+    "age" : 26,
+    "isTeacher": True
+}
+
+with open("data.json", "w") as f:
+    json.dump(data,f, indent=4, sort_keys=True)
 
 
 
