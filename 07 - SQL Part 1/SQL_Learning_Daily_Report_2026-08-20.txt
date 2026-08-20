@@ -1,0 +1,72 @@
+AI-ML-DS Journey • SQL Learning 
+AI-ML-DS Learning Journey
+Daily Learning Report — SQL Fundamentals
+Date 20 August 2026
+Learning Track Artificial Intelligence / Machine Learning / Data Science
+Current Module SQL & Relational Databases
+Focus Database fundamentals, tables, queries, CREATE TABLE, and constraints
+1. What I Learned Today
+1. What is a Database? — Understood the purpose of a database as an organized system for
+storing, managing, and retrieving data efficiently.
+2. SQL vs NoSQL — Learned the basic difference between relational SQL databases and
+non-relational NoSQL databases, including their different data models and typical use cases.
+3. What is SQL? — Learned that SQL (Structured Query Language) is used to interact with
+relational databases for creating, reading, updating, and deleting data.
+4. What is a Table? — Understood that a relational database stores data in tables made up of
+rows and columns.
+5. Database Installation — Went through the initial database setup process for Windows
+and reviewed the installation process for Mac.
+6. Creating the First Database — Practiced creating a database and understood the basic structure
+of a database environment.
+7. Creating the First Table — Practiced creating a table with columns and data types.
+8. Database Queries — Learned the role of SQL queriesin communicating with and
+manipulating a database.
+9. CREATE TABLE — Learned the basic syntax and purpose of the CREATE TABLE
+statement.
+10. Constraints — Introduced to constraints that enforce rules on table data and help maintain
+data integrity.
+2. Core SQL Concepts Covered
+Concept Understanding
+Database A structured collection of data that can be stored, managed, and queried.
+SQL A language used to interact with relational databases.
+Table A database object that organizes data into rows and columns.
+Row A single record in a table.
+Column A field/attribute describing a particular type of data.
+Query An SQL instruction used to retrieve or manipulate database information.
+AI-ML-DS Journey • SQL Learning • Page 2
+Concept Understanding
+CREATE TABLE SQL command used to create a new table and define its columns.
+Constraint A rule applied to table data to maintain validity and integrity.
+3. SQL Syntax Practiced
+A basic table-creation statement follows this structure:
+CREATE TABLE table_name (
+column_name data_type,
+column_name data_type
+);
+The important idea is that a table definition specifies the columns, their data types, and—when
+required—constraints that control what data can be stored.
+4. Constraints — Initial Understanding
+• PRIMARY KEY — Identifies each record uniquely.
+• NOT NULL — Prevents a column from accepting NULL values.
+• UNIQUE — Ensures values in a column are not duplicated.
+• DEFAULT — Provides a default value when no value is supplied.
+• CHECK — Applies a condition that values must satisfy.
+• FOREIGN KEY — Defines a relationship between tables and helps maintain referential
+integrity.
+5. Key Takeaways
+• A relational database organizes information using tables.
+• SQL is the primary language used to work with relational databases.
+• Tables consist of rows and columns, and each column has a defined data type.
+• SQL queries are the mechanism for interacting with database data and structures.
+• Constraints are important because they prevent invalid or inconsistent data from entering a table.
+• Today's learning establishes the foundation needed for SELECT queries, INSERT, UPDATE,
+DELETE, filtering, joins, aggregation, and database design.
+6. Next Learning Focus
+Continue with practical SQL operations: INSERT, SELECT, UPDATE, DELETE, WHERE
+conditions, ORDER BY, LIMIT, aggregate functions, GROUP BY, HAVING, and JOIN
+operations. The goal is to move from understanding database structure to confidently querying
+real datasets.
+Learning status: SQL fundamentals completed for today's session. This report is prepared as a
+AI-ML-DS Journey • SQL Learning • Page 3
+daily learning record for the AI-ML-DS journey and can be committed to GitHub as part of the
+learning history.
