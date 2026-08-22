@@ -1,0 +1,432 @@
+
+## Today - Topics Covered
+
+* Key Constraints
+* Primary & Foreign Keys
+* INSERT INTO
+* SELECT Command
+* WHERE Clause
+* Operators in WHERE
+* Frequently Used Operators
+* LIMIT Clause
+
+---
+
+## 1. Key Constraints
+
+* Learned how constraints are used to maintain **data integrity and consistency** in a database.
+* Constraints prevent invalid or duplicate data from being inserted.
+* Common constraints include:
+
+  * `PRIMARY KEY`
+  * `FOREIGN KEY`
+  * `NOT NULL`
+  * `UNIQUE`
+  * `DEFAULT`
+  * `CHECK`
+
+### Example
+
+```sql
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) UNIQUE,
+    age INT CHECK (age >= 18),
+    city VARCHAR(50) DEFAULT 'Pune'
+);
+```
+
+**Key learning:** Constraints allow the database itself to enforce important rules instead of relying only on application code.
+
+---
+
+## 2. Primary Key
+
+* A **Primary Key** uniquely identifies each record in a table.
+* It cannot contain `NULL`.
+* A table can have only one primary key constraint.
+* The primary key can consist of one or multiple columns.
+
+### Example
+
+```sql
+CREATE TABLE patients (
+    patient_id INT PRIMARY KEY,
+    patient_name VARCHAR(100),
+    age INT
+);
+```
+
+Here, `patient_id` uniquely identifies every patient.
+
+```text
+patient_id | patient_name | age
+-----------|--------------|----
+1          | Rahul        | 25
+2          | Amit         | 32
+3          | Priya        | 28
+```
+
+---
+
+## 3. Foreign Key
+
+* A **Foreign Key** creates a relationship between two tables.
+* It references a Primary Key or another unique key in the parent table.
+* It helps maintain **referential integrity**.
+
+### Example
+
+```sql
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(100)
+);
+```
+
+```sql
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(100),
+    department_id INT,
+    FOREIGN KEY (department_id)
+        REFERENCES departments(department_id)
+);
+```
+
+Here:
+
+```text
+departments
+    |
+    | department_id
+    ↓
+employees
+```
+
+An employee's `department_id` must refer to a valid department.
+
+---
+
+## 4. INSERT INTO
+
+* Learned how to add new records to a table using `INSERT INTO`.
+* Values must be provided according to the selected columns and their data types.
+
+### Insert values into all columns
+
+```sql
+INSERT INTO students
+VALUES (1, 'Rahul', 'rahul@gmail.com', 22, 'Pune');
+```
+
+### Insert values into specific columns
+
+```sql
+INSERT INTO students (student_id, name, email)
+VALUES (2, 'Amit', 'amit@gmail.com');
+```
+
+### Insert multiple records
+
+```sql
+INSERT INTO students (student_id, name, email, age, city)
+VALUES
+(3, 'Priya', 'priya@gmail.com', 21, 'Mumbai'),
+(4, 'Sneha', 'sneha@gmail.com', 23, 'Pune');
+```
+
+**Key learning:** Specifying column names explicitly is generally safer and clearer than relying on the table's column order.
+
+---
+
+## 5. SELECT Command
+
+* Learned that `SELECT` is used to retrieve data from a database.
+* It is one of the most frequently used SQL commands.
+
+### Select all columns
+
+```sql
+SELECT * FROM students;
+```
+
+### Select specific columns
+
+```sql
+SELECT name, email
+FROM students;
+```
+
+### Rename a column using Alias
+
+```sql
+SELECT name AS student_name
+FROM students;
+```
+
+### Select calculated values
+
+```sql
+SELECT name, age + 1 AS next_year_age
+FROM students;
+```
+
+---
+
+## 6. WHERE Clause
+
+* Learned how the `WHERE` clause filters records.
+* It returns only the rows that satisfy a specified condition.
+* It is commonly used with `SELECT`, `UPDATE`, and `DELETE`.
+
+### Example
+
+```sql
+SELECT *
+FROM students
+WHERE age > 21;
+```
+
+This returns only students whose age is greater than 21.
+
+### Multiple conditions
+
+```sql
+SELECT *
+FROM students
+WHERE city = 'Pune'
+AND age > 21;
+```
+
+---
+
+## 7. Operators in WHERE
+
+Learned how operators are used to create conditions.
+
+### Comparison Operators
+
+```sql
+=       -- Equal
+!=      -- Not equal
+<>      -- Not equal
+>       -- Greater than
+<       -- Less than
+>=      -- Greater than or equal
+<=      -- Less than or equal
+```
+
+### Examples
+
+```sql
+SELECT *
+FROM students
+WHERE age = 22;
+```
+
+```sql
+SELECT *
+FROM students
+WHERE age >= 21;
+```
+
+```sql
+SELECT *
+FROM students
+WHERE city != 'Mumbai';
+```
+
+---
+
+## 8. Frequently Used SQL Operators
+
+### AND
+
+Both conditions must be true.
+
+```sql
+SELECT *
+FROM students
+WHERE age > 20
+AND city = 'Pune';
+```
+
+---
+
+### OR
+
+At least one condition must be true.
+
+```sql
+SELECT *
+FROM students
+WHERE city = 'Pune'
+OR city = 'Mumbai';
+```
+
+---
+
+### NOT
+
+Reverses a condition.
+
+```sql
+SELECT *
+FROM students
+WHERE NOT city = 'Pune';
+```
+
+---
+
+### BETWEEN
+
+Used to find values within a range.
+
+```sql
+SELECT *
+FROM students
+WHERE age BETWEEN 20 AND 25;
+```
+
+---
+
+### IN
+
+Used when checking against multiple possible values.
+
+```sql
+SELECT *
+FROM students
+WHERE city IN ('Pune', 'Mumbai', 'Kolhapur');
+```
+
+Instead of writing:
+
+```sql
+WHERE city = 'Pune'
+   OR city = 'Mumbai'
+   OR city = 'Kolhapur'
+```
+
+`IN` makes the query cleaner.
+
+---
+
+### LIKE
+
+Used for pattern matching.
+
+```sql
+SELECT *
+FROM students
+WHERE name LIKE 'A%';
+```
+
+This finds names starting with `A`.
+
+Other common patterns:
+
+```sql
+LIKE 'A%'     -- Starts with A
+LIKE '%a'     -- Ends with a
+LIKE '%rah%'  -- Contains "rah"
+LIKE '_mit'   -- One character followed by "mit"
+```
+
+---
+
+### IS NULL
+
+Used to find records containing `NULL`.
+
+```sql
+SELECT *
+FROM students
+WHERE email IS NULL;
+```
+
+Important: Do **not** use:
+
+```sql
+WHERE email = NULL;
+```
+
+Use `IS NULL` instead.
+
+---
+
+## 9. LIMIT Clause
+
+* Learned how `LIMIT` restricts the number of rows returned.
+* Useful when working with large datasets.
+* Commonly used for pagination and retrieving the first few records.
+
+### Example
+
+```sql
+SELECT *
+FROM students
+LIMIT 5;
+```
+
+Returns only the first 5 records.
+
+### LIMIT with OFFSET
+
+```sql
+SELECT *
+FROM students
+LIMIT 5 OFFSET 10;
+```
+
+This skips the first 10 records and returns the next 5.
+
+### Practical pagination example
+
+```sql
+SELECT *
+FROM students
+ORDER BY student_id
+LIMIT 10 OFFSET 20;
+```
+
+This can be used to retrieve **page 3** when each page contains 10 records.
+
+---
+
+## 10. Practical Query Combining Multiple Concepts
+
+```sql
+SELECT student_id, name, age, city
+FROM students
+WHERE age >= 18
+AND city IN ('Pune', 'Mumbai')
+ORDER BY age DESC
+LIMIT 10;
+```
+
+### What this query does:
+
+1. Selects `student_id`, `name`, `age`, and `city`.
+2. Retrieves students who are at least 18 years old.
+3. Filters students from Pune or Mumbai.
+4. Sorts them by age from highest to lowest.
+5. Returns only the first 10 records.
+
+---
+
+## Key Takeaways
+
+* Constraints help maintain **data integrity**.
+* `PRIMARY KEY` uniquely identifies records.
+* `FOREIGN KEY` establishes relationships between tables.
+* `INSERT INTO` is used to add records.
+* `SELECT` is used to retrieve records.
+* `WHERE` filters records based on conditions.
+* Comparison operators help create conditions.
+* `AND`, `OR`, `NOT`, `IN`, `BETWEEN`, `LIKE`, and `IS NULL` are frequently used for filtering.
+* `LIMIT` controls how many records are returned.
+* Combining `SELECT + WHERE + ORDER BY + LIMIT` is fundamental for real-world SQL queries.
+* These concepts form the foundation for working with relational databases and are important prerequisites for **Data Science, Machine Learning, and backend development**.
