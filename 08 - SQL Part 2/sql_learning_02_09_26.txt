@@ -1,0 +1,638 @@
+# SQL Learning Report – Advanced SQL Concepts: ACID, Transactions, COMMIT, ROLLBACK & SAVEPOINT
+
+## Topics Covered
+
+Today, I learned important **advanced SQL concepts related to database transactions and data consistency**:
+
+* What is a Transaction?
+* ACID Properties
+* `AUTOCOMMIT`
+* `START TRANSACTION`
+* `COMMIT`
+* `ROLLBACK`
+* `SAVEPOINT`
+* `ROLLBACK TO SAVEPOINT`
+* Practical bank account transaction example
+
+---
+
+# 1. What is a Transaction?
+
+A **transaction** is a sequence of one or more SQL operations treated as a single unit of work.
+
+A transaction should either:
+
+* Complete successfully → Changes are permanently saved.
+* Fail → Changes can be reverted.
+
+### Real-world example
+
+Consider transferring ₹50 from Adam to Bob.
+
+There are two operations:
+
+```text
+Adam Account
+₹500 - ₹50
+     ↓
+₹450
+
+Bob Account
+₹300 + ₹50
+     ↓
+₹350
+```
+
+Both operations must succeed.
+
+It would be a serious problem if:
+
+* ₹50 is deducted from Adam
+* But ₹50 is not added to Bob
+
+This is why transactions are important.
+
+---
+
+# 2. ACID Properties
+
+ACID properties ensure that database transactions are reliable and maintain data consistency.
+
+ACID stands for:
+
+```text
+A → Atomicity
+C → Consistency
+I → Isolation
+D → Durability
+```
+
+---
+
+## A – Atomicity
+
+Atomicity means a transaction is treated as **one complete unit**.
+
+Either:
+
+```text
+All operations succeed
+```
+
+OR
+
+```text
+All operations fail
+```
+
+### Example
+
+```sql
+START TRANSACTION;
+
+UPDATE accounts
+SET balance = balance - 50
+WHERE id = 1;
+
+UPDATE accounts
+SET balance = balance + 50
+WHERE id = 2;
+
+COMMIT;
+```
+
+Both updates are saved together.
+
+If something goes wrong:
+
+```sql
+ROLLBACK;
+```
+
+All changes made during the transaction are reverted.
+
+### Simple understanding
+
+```text
+Transaction
+    |
+    ├── Operation 1 ✓
+    ├── Operation 2 ✓
+    |
+    └── COMMIT → Save everything
+
+OR
+
+    ├── Operation 1 ✓
+    ├── Operation 2 ✗
+    |
+    └── ROLLBACK → Undo everything
+```
+
+---
+
+## C – Consistency
+
+Consistency means a transaction should move the database from **one valid state to another valid state**.
+
+Database rules should not be violated.
+
+### Example
+
+Before transaction:
+
+```text
+Adam    = ₹500
+Bob     = ₹300
+
+Total   = ₹800
+```
+
+After transferring ₹50:
+
+```text
+Adam    = ₹450
+Bob     = ₹350
+
+Total   = ₹800
+```
+
+The total money remains consistent.
+
+The transaction should not create or destroy money accidentally.
+
+---
+
+## I – Isolation
+
+Isolation means multiple transactions running simultaneously should not interfere with each other.
+
+For example:
+
+```text
+Transaction A → Adam transfers ₹50
+Transaction B → Adam withdraws ₹100
+```
+
+The database must handle concurrent transactions carefully to prevent inconsistent data.
+
+Each transaction should behave as independently as possible.
+
+---
+
+## D – Durability
+
+Durability means once a transaction is committed, the data should remain permanently saved.
+
+```sql
+COMMIT;
+```
+
+After committing:
+
+```text
+Data should remain saved
+even if the application crashes.
+```
+
+The database system ensures committed changes are persistent.
+
+---
+
+# 3. Understanding AUTOCOMMIT
+
+I learned how to check the current autocommit status.
+
+```sql
+SELECT @@autocommit;
+```
+
+In MySQL, autocommit is generally enabled by default.
+
+When autocommit is enabled:
+
+```text
+SQL Query
+   ↓
+Executed
+   ↓
+Automatically committed
+```
+
+For example:
+
+```sql
+UPDATE accounts
+SET balance = 500
+WHERE id = 1;
+```
+
+The change may be committed automatically depending on the transaction mode.
+
+---
+
+## Disable AUTOCOMMIT
+
+```sql
+SET autocommit = 0;
+```
+
+This allows manual control over transactions.
+
+Now changes are not permanently saved until:
+
+```sql
+COMMIT;
+```
+
+Or they can be reverted using:
+
+```sql
+ROLLBACK;
+```
+
+### Important Concept
+
+```text
+AUTOCOMMIT = 1
+        ↓
+Each statement commits automatically
+
+AUTOCOMMIT = 0
+        ↓
+Manual transaction control
+        ↓
+COMMIT or ROLLBACK
+```
+
+---
+
+# 4. Creating Database and Table
+
+I practiced creating a database.
+
+```sql
+CREATE DATABASE prime;
+```
+
+Selecting the database:
+
+```sql
+USE prime;
+```
+
+---
+
+## Creating Accounts Table
+
+```sql
+CREATE TABLE accounts(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    balance DECIMAL(10,2)
+);
+```
+
+### Table Structure
+
+| Column    | Purpose                   |
+| --------- | ------------------------- |
+| `id`      | Unique account identifier |
+| `name`    | Account holder name       |
+| `balance` | Account balance           |
+
+The `AUTO_INCREMENT` property automatically generates IDs.
+
+---
+
+# 5. Inserting Account Data
+
+```sql
+INSERT INTO accounts(name, balance) VALUES
+("adam", 500.00),
+("bob", 300.00),
+("charlie", 1000.00);
+```
+
+### Initial Data
+
+| ID | Name    | Balance |
+| -- | ------- | ------: |
+| 1  | Adam    |  500.00 |
+| 2  | Bob     |  300.00 |
+| 3  | Charlie | 1000.00 |
+
+To view the data:
+
+```sql
+SELECT * FROM accounts;
+```
+
+---
+
+# 6. START TRANSACTION
+
+A transaction can be started using:
+
+```sql
+START TRANSACTION;
+```
+
+After starting a transaction, multiple SQL operations can be executed as a single logical unit.
+
+---
+
+# 7. COMMIT
+
+`COMMIT` permanently saves all successful changes made during a transaction.
+
+### Example: Money Transfer
+
+```sql
+START TRANSACTION;
+
+UPDATE accounts
+SET balance = balance - 50
+WHERE id = 1;
+
+UPDATE accounts
+SET balance = balance + 50
+WHERE id = 2;
+
+COMMIT;
+```
+
+### Before Transaction
+
+```text
+Adam = 500
+Bob  = 300
+```
+
+### After Transaction
+
+```text
+Adam = 450
+Bob  = 350
+```
+
+Since `COMMIT` was executed, the changes become permanent.
+
+---
+
+# 8. ROLLBACK
+
+`ROLLBACK` is used to undo changes made during the current transaction.
+
+### Example
+
+```sql
+START TRANSACTION;
+
+UPDATE accounts
+SET balance = balance - 50
+WHERE id = 1;
+
+UPDATE accounts
+SET balance = balance + 50
+WHERE id = 2;
+
+ROLLBACK;
+```
+
+After rollback:
+
+```text
+Adam = Original Balance
+Bob  = Original Balance
+```
+
+Both operations are undone.
+
+This demonstrates the **Atomicity property** of ACID.
+
+---
+
+# 9. SAVEPOINT
+
+A `SAVEPOINT` allows creating a checkpoint inside a transaction.
+
+Instead of rolling back the entire transaction, we can roll back only to a specific point.
+
+### Example
+
+```sql
+START TRANSACTION;
+
+UPDATE accounts
+SET balance = balance + 500
+WHERE id = 1;
+
+SAVEPOINT after_wallet_topup;
+
+UPDATE accounts
+SET balance = balance + 50
+WHERE id = 1;
+```
+
+At this stage:
+
+```text
+Transaction Started
+        ↓
++500 Added
+        ↓
+SAVEPOINT Created
+        ↓
++50 Added
+```
+
+Suppose the second operation contains an error or needs to be undone.
+
+We can execute:
+
+```sql
+ROLLBACK TO after_wallet_topup;
+```
+
+This removes only the changes made **after the savepoint**.
+
+---
+
+# 10. ROLLBACK TO SAVEPOINT
+
+```sql
+ROLLBACK TO after_wallet_topup;
+```
+
+### Transaction Flow
+
+```text
+START TRANSACTION
+       ↓
+Add ₹500
+       ↓
+SAVEPOINT
+       ↓
+Add ₹50
+       ↓
+Error Occurs
+       ↓
+ROLLBACK TO SAVEPOINT
+       ↓
+₹50 Change Removed
+       ↓
+₹500 Change Remains
+```
+
+This is useful when a transaction contains multiple complex operations.
+
+---
+
+# 11. Complete Practical Example
+
+```sql
+SELECT @@autocommit;
+
+SET autocommit = 0;
+
+CREATE DATABASE prime;
+
+USE prime;
+
+CREATE TABLE accounts(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    balance DECIMAL(10,2)
+);
+
+INSERT INTO accounts(name, balance) VALUES
+("adam", 500.00),
+("bob", 300.00),
+("charlie", 1000.00);
+
+SELECT * FROM accounts;
+```
+
+### Transaction with COMMIT
+
+```sql
+START TRANSACTION;
+
+UPDATE accounts 
+SET balance = balance - 50 
+WHERE id = 1;
+
+UPDATE accounts 
+SET balance = balance + 50 
+WHERE id = 2;
+
+COMMIT;
+```
+
+### Transaction with ROLLBACK
+
+```sql
+START TRANSACTION;
+
+UPDATE accounts 
+SET balance = balance - 50 
+WHERE id = 1;
+
+UPDATE accounts 
+SET balance = balance + 50 
+WHERE id = 2;
+
+ROLLBACK;
+```
+
+### Transaction with SAVEPOINT
+
+```sql
+START TRANSACTION;
+
+UPDATE accounts 
+SET balance = balance + 500 
+WHERE id = 1;
+
+SAVEPOINT after_wallet_topup;
+
+UPDATE accounts 
+SET balance = balance + 50 
+WHERE id = 1;
+
+ROLLBACK TO after_wallet_topup;
+
+COMMIT;
+```
+
+---
+
+# 12. Important Difference Between COMMIT, ROLLBACK & SAVEPOINT
+
+| Command                 | Purpose                                    |
+| ----------------------- | ------------------------------------------ |
+| `START TRANSACTION`     | Starts a transaction                       |
+| `COMMIT`                | Permanently saves changes                  |
+| `ROLLBACK`              | Undoes the complete transaction            |
+| `SAVEPOINT`             | Creates a checkpoint                       |
+| `ROLLBACK TO SAVEPOINT` | Undoes changes after a specific checkpoint |
+
+---
+
+# Key Takeaways
+
+* A **Transaction** is a group of SQL operations treated as one unit.
+* Transactions are essential when multiple database operations depend on each other.
+* ACID properties ensure reliable database operations.
+* **Atomicity** → All operations succeed or none do.
+* **Consistency** → Database remains in a valid state.
+* **Isolation** → Concurrent transactions do not improperly interfere.
+* **Durability** → Committed data remains permanently stored.
+* `AUTOCOMMIT` controls whether queries are automatically committed.
+* `COMMIT` permanently saves transaction changes.
+* `ROLLBACK` undoes transaction changes.
+* `SAVEPOINT` creates checkpoints inside transactions.
+* `ROLLBACK TO SAVEPOINT` allows partial rollback.
+
+## Final Practical Understanding
+
+The core concept I learned today can be summarized as:
+
+```text
+START TRANSACTION
+        ↓
+Execute Multiple Operations
+        ↓
+   ┌────┴────┐
+   ↓         ↓
+Success      Error
+   ↓         ↓
+COMMIT    ROLLBACK
+   ↓         ↓
+Save      Undo Changes
+```
+
+For complex transactions:
+
+```text
+START TRANSACTION
+        ↓
+Operation 1
+        ↓
+SAVEPOINT A
+        ↓
+Operation 2
+        ↓
+SAVEPOINT B
+        ↓
+Operation 3 Error
+        ↓
+ROLLBACK TO SAVEPOINT B
+        ↓
+Fix / Continue
+        ↓
+COMMIT
+```
+
+**Why this matters:** Transactions are not just theoretical SQL concepts. They are critical in real applications such as banking systems, payment processing, e-commerce orders, inventory management, and healthcare systems—anywhere partial database updates could create incorrect or dangerous data.
